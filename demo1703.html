@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arr = [5, 3, 8, 2, 7];
+    console.log(swap(arr));
+    function maxInArray(arrInput) {
+        let maxOfIndex = 0;
+        for (let i = 1; i < arrInput.length; i++) {
+            if (arrInput[maxOfIndex] < arrInput[i]) {
+                maxOfIndex = i;
+            }
+        }
+        return maxOfIndex;
+    }
+
+    function minInArray(arrInput) {
+        let minOfIndex = 0;
+        for (let i = 1; i < arrInput.length; i++) {
+            if (arrInput[minOfIndex] > arrInput[i]) {
+                minOfIndex = i;
+            }
+        }
+        return minOfIndex;
+    }
+
+    function swap(arrayInput) {
+        let maxIndex = maxInArray(arrayInput);
+        let minIndex = minInArray(arrayInput);
+        let temp = arrayInput[minIndex];
+        arrayInput[minIndex] = arrayInput[maxIndex];
+        arrayInput[maxIndex] = temp;
+        return arrayInput;
+    }
+
+
+</script>
+</html>
