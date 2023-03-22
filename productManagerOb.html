@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="display()">
+<p id = "show"></p>
+<button onclick="addProd()">Add</button>
+</body>
+<script>
+    class Product {
+        name;
+        price;
+        made;
+
+        constructor(name, price, made) {
+            this.name = name;
+            this.price = price;
+            this.made = made;
+        }
+    }
+
+    let ip14 = new Product("Iphone14", 500, "CHINA");
+    let ip15 = new Product("Iphone15", 600, "CHINA");
+    let products = [ip14, ip15];
+
+    function display() {
+        let str = "<table>";
+        for (let i = 0; i < products.length; i++) {
+            str += "<tr>"
+            str += "<td>" + products[i].name + "</td>";
+            str += "<td>" + products[i].price + "</td>";
+            str += "<td>" + products[i].made + "</td>";
+            str += "<td><button onclick='editProd(" + i + ")'>Sửa</button></td></tr>"
+        }
+        str += "</table>"
+        document.getElementById("show").innerHTML = str;
+    }
+
+    function inputInfo() {
+        let name = prompt("Nhập tên sản phẩm: ")
+        let price = prompt("Nhập giá sản phẩm: ")
+        let made = prompt("Nhập xuất xứ sản phẩm: ")
+        let newProd = new Product(name, price, made);
+        return newProd;
+    }
+
+    function addProd() {
+        let newProd = inputInfo();
+        products.push(newProd);
+        display();
+    }
+</script>
+</html>
